@@ -8,13 +8,13 @@ function App() {
   const [formData, setFormData] = useState(null);
 
   const handleSubmit = async (form) => {
-    const res = await axios.post("http://localhost:5000/business-data", form);
+    const res = await axios.post("https://growthproai-ass-backend.onrender.com/business-data", form);
     setBusinessData(res.data);
     setFormData(form);
   };
 
   const refreshHeadline = async () => {
-    const res = await axios.get("http://localhost:5000/regenerate-headline", {
+    const res = await axios.get("https://growthproai-ass-backend.onrender.com/regenerate-headline", {
       params: formData,
     });
     setBusinessData((prev) => ({ ...prev, headline: res.data.headline }));
